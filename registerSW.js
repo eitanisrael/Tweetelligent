@@ -1,1 +1,1 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/Tweetelligent/dist/sw.js', { scope: '/Tweetelligent/dist/' })})}
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/Tweetelligent/sw.js', { scope: '/Tweetelligent/' })})}
