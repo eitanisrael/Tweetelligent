@@ -1,4 +1,4 @@
-name: Build Android App Bundle
+name: Build Android App Bundle + APK
 
 on:
   push:
@@ -32,11 +32,16 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Build Android App Bundle
+      - name: Build APK (for device install)
+        run: ./gradlew assembleRelease
+
+      - name: Build AAB (for Google Play)
         run: ./gradlew bundleRelease
 
-      - name: Upload AAB
+      - name: Upload Android outputs
         uses: actions/upload-artifact@v4
         with:
-          name: android-aab
-          path: "**/*.aab"
+          name: android-builds
+          path: |
+            app/build/outputs/apk/release/*.apk
+            app/build/outputs/bundle/release/*.aab
