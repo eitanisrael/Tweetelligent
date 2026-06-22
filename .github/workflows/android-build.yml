@@ -29,13 +29,11 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Install Bubblewrap
-        run: npm install -g @bubblewrap/cli
+      - name: Make gradlew executable
+        run: chmod +x gradlew
 
-      - name: Build Android app
-        run: |
-          bubblewrap init --manifest=https://eitanisrael.github.io/Tweetelligent/manifest.webmanifest
-          bubblewrap build
+      - name: Build Android App Bundle
+        run: ./gradlew bundleRelease
 
       - name: Upload AAB
         uses: actions/upload-artifact@v4
