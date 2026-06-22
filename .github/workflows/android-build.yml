@@ -33,7 +33,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build APK (for device install)
-        run: ./gradlew assembleRelease
+        run: ./gradlew assembleDebug
 
       - name: Build AAB (for Google Play)
         run: ./gradlew bundleRelease
@@ -43,5 +43,5 @@ jobs:
         with:
           name: android-builds
           path: |
-            app/build/outputs/apk/release/*.apk
+            path: app/build/outputs/apk/debug/*.apk
             app/build/outputs/bundle/release/*.aab
