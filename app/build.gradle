@@ -91,12 +91,11 @@ android {
     }
 }
 
-task generateShorcutsFile {
-    def shortcutsFile = new File("$projectDir/src/main/res/xml", "shortcuts.xml")
-    shortcutsFile.text = ""
-}
-
-preBuild.dependsOn(generateShorcutsFile)
+/*
+ * FIX חשוב:
+ * ביטלנו את shortcuts.xml לחלוטין כדי למנוע crash ב-build
+ * (הייתה שגיאת XML ריק שגרמה לכשל)
+ */
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
